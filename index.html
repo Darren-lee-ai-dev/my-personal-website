@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Darren Lee builds things with AI in Singapore. Projects in agentic AI, fintech and financial education.">
+  <title>Darren Lee</title>
+
+  <style>
+    :root {
+      --bg: #f4f3ec;
+      --ink: #18251f;
+      --muted: #657067;
+      --line: #d1d6ca;
+      --accent: #d8f36a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #648826;
+      outline-offset: 6px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 6%;
+    }
+
+    main { overflow: hidden; }
+
+
+    /* Nav */
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span { color: #82973c; }
+
+    .links {
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 90px 0 72px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #70873d;
+    }
+
+    h1 {
+      margin: 28px 0;
+      font-size: clamp(60px, 7.5vw, 100px);
+      line-height: 1;
+      letter-spacing: -6px;
+    }
+
+    h1 em {
+      font-family: Georgia, serif;
+      font-weight: 400;
+    }
+
+    .intro { max-width: 430px; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 35px;
+      margin-top: 20px;
+      padding: 17px 23px;
+      border-radius: 4px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .button:hover { background: #344d3c; }
+
+    /* the circle-and-orbits drawing on the right */
+    .art {
+      position: relative;
+      display: grid;
+      place-items: center;
+      height: 380px;
+      border-radius: 50% 50% 5% 5%;
+      background: #e8ecdf;
+      isolation: isolate;
+    }
+
+    .orbit {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border: 1px solid #839775;
+      border-radius: 50%;
+    }
+
+    .orbit.two   { transform: rotate(55deg) scaleX(.48); }
+    .orbit.three { transform: rotate(-55deg) scaleX(.48); }
+
+    .core {
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 15px 18px 0 #234a32;
+      font: italic 50px Georgia, serif;
+    }
+
+    .star {
+      position: absolute;
+      top: 62px;
+      right: 46px;
+      font-size: 55px;
+    }
+
+    .note {
+      position: absolute;
+      bottom: 23px;
+      left: 24px;
+      font: 11px monospace;
+      letter-spacing: 1px;
+    }
+
+    .strip {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font: 12px monospace;
+      color: var(--muted);
+    }
+
+
+    /* Sections */
+
+    section { padding: 80px 0; }
+
+    .sectionhead {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin: 13px 0 0;
+      font-size: 42px;
+      letter-spacing: -2px;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 25px;
+      letter-spacing: -.7px;
+    }
+
+    .small-link {
+      padding-bottom: 5px;
+      border-bottom: 1px solid;
+      font-size: 13px;
+    }
+
+
+    /* Project list */
+
+    .project {
+      display: grid;
+      grid-template-columns: 70px 1fr 1.1fr 30px;
+      gap: 25px;
+      align-items: center;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding .2s;
+    }
+
+    .project:hover { padding-left: 12px; }
+
+    .project p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .num {
+      font: 12px monospace;
+      color: var(--muted);
+    }
+
+    .tag {
+      font: 10px monospace;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .arrow { font-size: 25px; }
+
+
+    /* About */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 100px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .about p { margin-top: 0; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .chips span {
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      font: 11px monospace;
+    }
+
+
+    /* Contact */
+
+    .contact {
+      margin: 70px 0;
+      padding: 50px;
+      border-radius: 10px;
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .contact h2 {
+      max-width: 650px;
+      font-size: clamp(35px, 5vw, 60px);
+    }
+
+    .contact p { color: #bbc7bb; }
+
+    .contact .button {
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0 35px;
+      font: 11px monospace;
+      color: var(--muted);
+    }
+
+
+    /* Phones */
+
+    @media (max-width: 720px) {
+      nav { height: 80px; }
+      .links { gap: 18px; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 55px;
+      }
+
+      h1 { letter-spacing: -3px; }
+      h2 { font-size: 35px; }
+
+      .art {
+        width: 100%;
+        max-width: 400px;
+        height: 300px;
+        margin: 0 auto;
+      }
+
+      .orbit {
+        width: 210px;
+        height: 210px;
+      }
+
+      .strip {
+        flex-wrap: wrap;
+        line-height: 1.5;
+      }
+
+      section { padding: 55px 0; }
+
+      .sectionhead {
+        align-items: start;
+        gap: 20px;
+      }
+
+      /* number | title | arrow on top, description underneath */
+      .project {
+        grid-template-columns: 30px 1fr 20px;
+        gap: 12px;
+      }
+      .project p { grid-column: 2; grid-row: 2; }
+      .arrow     { grid-column: 3; grid-row: 1; }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .contact { padding: 30px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .project { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <nav aria-label="Main navigation">
+    <a class="logo" href="#">darren<span>.</span></a>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#connect">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <header class="hero">
+      <div>
+        <div class="eyebrow status"><span class="dot"></span> Singapore</div>
+        <h1>Hi, I'm <em>Darren.</em></h1>
+        <p class="intro">I build things with AI. Lately that's mostly agents and fintech, plus whatever side project I can't stop thinking about.</p>
+        <a class="button" href="#work">See what I'm working on <span>↘</span></a>
+      </div>
+
+      <div class="art" role="img" aria-label="Abstract drawing of a circle with orbits around it">
+        <div class="orbit"></div>
+        <div class="orbit two"></div>
+        <div class="orbit three"></div>
+        <div class="core">d.</div>
+        <span class="star">✳</span>
+        <span class="note">IDEA → EXPERIMENT → BUILD</span>
+      </div>
+    </header>
+
+    <div class="strip">
+      <span>01 / AGENTIC AI</span>
+      <span>02 / FINTECH</span>
+      <span>03 / SIDE PROJECTS</span>
+      <span>MORE SOON</span>
+    </div>
+
+    <section id="work">
+      <div class="sectionhead">
+        <div>
+          <span class="eyebrow">Projects</span>
+          <h2>What I'm working on</h2>
+        </div>
+        <a class="small-link" href="https://github.com/dljw">GitHub ↗</a>
+      </div>
+
+      <a class="project" href="https://campshell.dev">
+        <span class="num">01</span>
+        <div>
+          <h3>Campshell</h3>
+          <span class="tag">AI · Templates</span>
+        </div>
+        <p>Templates made of plain files that turn an AI assistant into an app built for one job.</p>
+        <span class="arrow">↗</span>
+      </a>
+
+      <a class="project" href="https://perfingo.com">
+        <span class="num">02</span>
+        <div>
+          <h3>Perfingo</h3>
+          <span class="tag">Fintech</span>
+        </div>
+        <p>A simpler way to handle your personal finances.</p>
+        <span class="arrow">↗</span>
+      </a>
+
+      <a class="project" href="https://daretofinance.com">
+        <span class="num">03</span>
+        <div>
+          <h3>DareToFinance</h3>
+          <span class="tag">Financial education</span>
+        </div>
+        <p>Finance lessons for people in Singapore.</p>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+
+    <section class="about" id="about">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2>A bit about me</h2>
+      </div>
+      <div>
+        <p>I got into this by fine-tuning GPT-2 and poking at tokenizers. These days I'm more interested in AI that actually does things: agents that write code, take actions, and fit into how people already work.</p>
+        <p>I live in Singapore and try to build in the open, mistakes included.</p>
+        <div class="chips">
+          <span>Agentic AI</span>
+          <span>LLMs</span>
+          <span>Product experiments</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="connect">
+      <span class="eyebrow">Say hello</span>
+      <h2>Working on something similar?</h2>
+      <p>I'm always happy to talk about AI, agents or startups.</p>
+      <a class="button" href="https://github.com/">Find me on GitHub ↗</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>© Darren Lee</span>
+    <span>Singapore</span>
+  </footer>
+
+</div>
+</body>
+</html>
